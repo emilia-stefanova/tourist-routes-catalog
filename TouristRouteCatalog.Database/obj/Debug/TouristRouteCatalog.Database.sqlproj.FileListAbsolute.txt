@@ -1,0 +1,9 @@
+c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Database\bin\Debug\TouristRouteCatalog.Database.dacpac
+c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Database\bin\Debug\TouristRouteCatalog.Database.dll
+c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Database\bin\Debug\TouristRouteCatalog.Database.pdb
+c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Database\obj\Debug\Model.xml
+c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Database\obj\Debug\refactor.xml
+c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Database\obj\Debug\postdeploy.sql
+c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Database\obj\Debug\predeploy.sql
+c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Database\obj\Debug\TouristRouteCatalog.Database.dll
+c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Database\obj\Debug\TouristRouteCatalog.Database.pdb

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristRouteCatalog.Web", "TouristRouteCatalog.Web\TouristRouteCatalog.Web.csproj", "{9656F740-5CE2-449F-A862-AFC8E7F2A8FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristRouteCatalog.Core", "TouristRouteCatalog.Core\TouristRouteCatalog.Core.csproj", "{C4D03C8F-A1A2-4855-AC19-FA968B043121}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TouristRouteCatalog.Database", "TouristRouteCatalog.Database\TouristRouteCatalog.Database.sqlproj", "{F446D3CC-7761-4355-81F0-DA2B70B98A57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9656F740-5CE2-449F-A862-AFC8E7F2A8FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9656F740-5CE2-449F-A862-AFC8E7F2A8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9656F740-5CE2-449F-A862-AFC8E7F2A8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9656F740-5CE2-449F-A862-AFC8E7F2A8FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4D03C8F-A1A2-4855-AC19-FA968B043121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4D03C8F-A1A2-4855-AC19-FA968B043121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4D03C8F-A1A2-4855-AC19-FA968B043121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4D03C8F-A1A2-4855-AC19-FA968B043121}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F446D3CC-7761-4355-81F0-DA2B70B98A57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F446D3CC-7761-4355-81F0-DA2B70B98A57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F446D3CC-7761-4355-81F0-DA2B70B98A57}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F446D3CC-7761-4355-81F0-DA2B70B98A57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F446D3CC-7761-4355-81F0-DA2B70B98A57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F446D3CC-7761-4355-81F0-DA2B70B98A57}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
