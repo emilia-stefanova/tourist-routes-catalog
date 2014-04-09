@@ -1,8 +1,0 @@
-c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Core\bin\Debug\TouristRouteCatalog.Core.dll.config
-c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Core\bin\Debug\TouristRouteCatalog.Core.dll
-c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Core\bin\Debug\TouristRouteCatalog.Core.pdb
-c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Core\bin\Debug\EntityFramework.dll
-c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Core\bin\Debug\Microsoft.Practices.Unity.dll
-c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Core\bin\Debug\EntityFramework.xml
-c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Core\obj\Debug\TouristRouteCatalog.Core.dll
-c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Core\obj\Debug\TouristRouteCatalog.Core.pdb
