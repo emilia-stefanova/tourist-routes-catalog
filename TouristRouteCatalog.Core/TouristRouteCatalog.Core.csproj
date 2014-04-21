@@ -38,6 +38,7 @@
       <HintPath>..\Libraries\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
@@ -77,6 +78,21 @@
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Helpers\ModelHelper.cs" />
+    <Compile Include="Models\Campsite.cs" />
+    <Compile Include="Models\Mapping\CampsiteMap.cs" />
+    <Compile Include="Models\Mapping\RouteDifficultyLevelMap.cs" />
+    <Compile Include="Models\Mapping\RouteGeoPointMap.cs" />
+    <Compile Include="Models\Mapping\RouteImageMap.cs" />
+    <Compile Include="Models\Mapping\RouteMap.cs" />
+    <Compile Include="Models\Mapping\UserMap.cs" />
+    <Compile Include="Models\Mapping\WaterSourceMap.cs" />
+    <Compile Include="Models\Route.cs" />
+    <Compile Include="Models\RouteDifficultyLevel.cs" />
+    <Compile Include="Models\RouteGeoPoint.cs" />
+    <Compile Include="Models\RouteImage.cs" />
+    <Compile Include="Models\TouristRouteCatalogContext.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\WaterSource.cs" />
     <Compile Include="Model\CategoryModel.cs" />
     <Compile Include="Model\IModel.cs" />
     <Compile Include="Model\TestModel.cs" />

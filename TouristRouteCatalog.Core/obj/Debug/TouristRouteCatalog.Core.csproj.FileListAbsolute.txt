@@ -1,0 +1,8 @@
+C:\Users\Todor\Documents\GitHub\tourist-routes-catalog\TouristRouteCatalog.Core\bin\Debug\TouristRouteCatalog.Core.dll.config
+C:\Users\Todor\Documents\GitHub\tourist-routes-catalog\TouristRouteCatalog.Core\bin\Debug\TouristRouteCatalog.Core.dll
+C:\Users\Todor\Documents\GitHub\tourist-routes-catalog\TouristRouteCatalog.Core\bin\Debug\TouristRouteCatalog.Core.pdb
+C:\Users\Todor\Documents\GitHub\tourist-routes-catalog\TouristRouteCatalog.Core\bin\Debug\EntityFramework.dll
+C:\Users\Todor\Documents\GitHub\tourist-routes-catalog\TouristRouteCatalog.Core\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\Todor\Documents\GitHub\tourist-routes-catalog\TouristRouteCatalog.Core\bin\Debug\EntityFramework.xml
+C:\Users\Todor\Documents\GitHub\tourist-routes-catalog\TouristRouteCatalog.Core\obj\Debug\TouristRouteCatalog.Core.dll
+C:\Users\Todor\Documents\GitHub\tourist-routes-catalog\TouristRouteCatalog.Core\obj\Debug\TouristRouteCatalog.Core.pdb

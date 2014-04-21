@@ -1,0 +1,31 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Campsites] (Table)
+       [dbo].[RouteDifficultyLevels] (Table)
+       [dbo].[RouteGeoPoints] (Table)
+       [dbo].[RouteImages] (Table)
+       [dbo].[Routes] (Table)
+       [dbo].[RoutesCampsites] (Table)
+       [dbo].[RoutesWaterSources] (Table)
+       [dbo].[Users] (Table)
+       [dbo].[WaterSources] (Table)
+       [dbo].[FK_RouteGeoPoints_Routes] (Foreign Key)
+       [dbo].[FK_RouteImages_Routes] (Foreign Key)
+       [dbo].[FK_Routes_RouteDifficultyLevels1] (Foreign Key)
+       [dbo].[FK_Routes_Users] (Foreign Key)
+       [dbo].[FK_RoutesCampsites_Campsites] (Foreign Key)
+       [dbo].[FK_RoutesCampsites_Routes] (Foreign Key)
+       [dbo].[FK_RoutesWaterSources_Routes] (Foreign Key)
+       [dbo].[FK_RoutesWaterSources_WaterSources] (Foreign Key)
+
+** Supporting actions

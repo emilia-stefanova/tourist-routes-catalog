@@ -1,0 +1,5 @@
+C:\Users\Todor\Documents\GitHub\tourist-routes-catalog\TouristRouteCatalog.Database\bin\Debug\TouristRouteCatalog.Database.dacpac
+C:\Users\Todor\Documents\GitHub\tourist-routes-catalog\TouristRouteCatalog.Database\bin\Debug\TouristRouteCatalog.Database.dll
+C:\Users\Todor\Documents\GitHub\tourist-routes-catalog\TouristRouteCatalog.Database\bin\Debug\TouristRouteCatalog.Database.pdb
+C:\Users\Todor\Documents\GitHub\tourist-routes-catalog\TouristRouteCatalog.Database\obj\Debug\TouristRouteCatalog.Database.dll
+C:\Users\Todor\Documents\GitHub\tourist-routes-catalog\TouristRouteCatalog.Database\obj\Debug\TouristRouteCatalog.Database.pdb
