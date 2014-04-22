@@ -4,7 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ffd545ddd6b84bbabf9312ebcea796f3" Name="Diagram1" />
+      <Diagram DiagramId="ffd545ddd6b84bbabf9312ebcea796f3" Name="Diagram1" >
+        <EntityTypeShape EntityType="TouristCatalogRouteModel.Campsite" Width="1.5" PointX="3.1631646208293569" PointY="28.075890017708712" />
+        <EntityTypeShape EntityType="TouristCatalogRouteModel.RouteDifficultyLevel" Width="1.5" PointX="5.0133581836770089" PointY="18.693824851277203" />
+        <EntityTypeShape EntityType="TouristCatalogRouteModel.RouteGeoPoint" Width="1.5" PointX="0.29181714369534384" PointY="18.670409151665126" />
+        <EntityTypeShape EntityType="TouristCatalogRouteModel.RouteImage" Width="1.5" PointX="3.5393083987474947" PointY="23.219110544407325" />
+        <EntityTypeShape EntityType="TouristCatalogRouteModel.Route" Width="1.5" PointX="8.0460540950512769" PointY="5.1006810241847678" />
+        <EntityTypeShape EntityType="TouristCatalogRouteModel.User" Width="1.5" PointX="8.974681498936695" PointY="8.7408377717904919" />
+        <EntityTypeShape EntityType="TouristCatalogRouteModel.WaterSource" Width="1.5" PointX="3.3740733151203361" PointY="21.093737910079646" />
+        <AssociationConnector Association="TouristCatalogRouteModel.FK_Routes_RouteDifficultyLevels1" />
+        <AssociationConnector Association="TouristCatalogRouteModel.FK_RouteGeoPoints_Routes" />
+        <AssociationConnector Association="TouristCatalogRouteModel.FK_RouteImages_Routes" />
+        <AssociationConnector Association="TouristCatalogRouteModel.FK_Routes_Users" />
+        <AssociationConnector Association="TouristCatalogRouteModel.RoutesCampsites" />
+        <AssociationConnector Association="TouristCatalogRouteModel.RoutesWaterSources" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

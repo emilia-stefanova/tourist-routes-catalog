@@ -32,3 +32,37 @@ c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web
 c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Web\bin\System.Web.WebPages.Razor.xml
 c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Web\obj\Debug\TouristRouteCatalog.Web.dll
 c:\users\mastx_000\documents\visual studio 2012\Projects\TouristRouteCatalog.Web\TouristRouteCatalog.Web\obj\Debug\TouristRouteCatalog.Web.pdb
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\TouristRouteCatalog.Web.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\TouristRouteCatalog.Web.pdb
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\Antlr3.Runtime.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\EntityFramework.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\Microsoft.Practices.Unity.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\Microsoft.Web.Infrastructure.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\Newtonsoft.Json.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Net.Http.Formatting.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.Http.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.Http.WebHost.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.Mvc.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.Optimization.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.Providers.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.Razor.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.WebPages.Deployment.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.WebPages.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.WebPages.Razor.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\TouristRouteCatalog.Core.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\WebGrease.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\TouristRouteCatalog.Core.pdb
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\EntityFramework.xml
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\Newtonsoft.Json.xml
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Net.Http.Formatting.xml
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.Http.xml
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.Http.WebHost.xml
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.Mvc.xml
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.Razor.xml
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.WebPages.xml
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.WebPages.Deployment.xml
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\bin\System.Web.WebPages.Razor.xml
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\obj\Debug\TouristRouteCatalog.Web.csprojResolveAssemblyReference.cache
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\obj\Debug\TouristRouteCatalog.Web.dll
+D:\Projects\ST Project\tourist-routes-catalog\TouristRouteCatalog.Web\obj\Debug\TouristRouteCatalog.Web.pdb

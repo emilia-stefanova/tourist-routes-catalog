@@ -49,8 +49,8 @@ namespace TouristRouteCatalog.Services.Helpers
         private static void InitContainer()
         {
             container = new UnityContainer();
-            List<Type> types = Assembly.Load("ShopNBC.Core").GetTypes()
-                .Where(t => t.Namespace != null && (t.Namespace.StartsWith("ManagerMate.Objects.Repositories") || t.Namespace.StartsWith("ShopNBC.Core.Model"))).ToList();
+            List<Type> types = Assembly.Load("TouristRouteCatalog.Core").GetTypes()
+                .Where(t => t.Namespace != null && (t.Namespace.StartsWith("TouristRouteCatalog.Core.Model"))).ToList();
             foreach (Type type in types)
             {
                 container.RegisterType(type);

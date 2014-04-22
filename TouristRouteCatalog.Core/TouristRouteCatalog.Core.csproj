@@ -57,7 +57,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\Campsite.cs">
+      <DependentUpon>TouristCatalogRouteModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\DataContextInstance.cs" />
+    <Compile Include="DAL\Route.cs">
+      <DependentUpon>TouristCatalogRouteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\RouteDifficultyLevel.cs">
+      <DependentUpon>TouristCatalogRouteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\RouteGeoPoint.cs">
+      <DependentUpon>TouristCatalogRouteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\RouteImage.cs">
+      <DependentUpon>TouristCatalogRouteModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\TouristCatalogRouteModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,6 +87,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TouristCatalogRouteModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\User.cs">
+      <DependentUpon>TouristCatalogRouteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\WaterSource.cs">
+      <DependentUpon>TouristCatalogRouteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CalculateMd5Hash.cs" />
     <Compile Include="Helpers\DateHelper.cs" />

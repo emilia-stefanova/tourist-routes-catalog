@@ -20,5 +20,14 @@ namespace TouristRouteCatalog.Core.Repository
         }
 
         #endregion
+
+        public List<TestProxy> Test()
+        {
+            var query = (from c in this.Context.Users
+                         select new TestProxy { 
+                             username = c.Name
+                         }).ToList();
+            return query;
+        }
     }
 }

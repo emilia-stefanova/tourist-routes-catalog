@@ -12,51 +12,25 @@ namespace TouristRouteCatalog.Core.DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.EntityClient;
-    using System.Data.Objects;
-
-    public partial class TouristCatalogModelEntity : ObjectContext
+    
+    public partial class TouristCatalogModelEntity : DbContext
     {
-       #region Constructors
-    
-        /// <summary>
-        /// Initializes a new ShopNBCEntities object using the connection string found in the 'ShopNBCEntities' section of the application configuration file.
-        /// </summary>
         public TouristCatalogModelEntity()
-            : base("name=TouristCatalogModelEntity", "TouristCatalogModelEntity")
+            : base("name=TouristCatalogModelEntity")
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
-            OnContextCreated();
         }
     
-        /// <summary>
-        /// Initialize a new ShopNBCEntities object.
-        /// </summary>
-        public TouristCatalogModelEntity(string connectionString)
-            : base(connectionString, "TouristCatalogModelEntity")
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
-            OnContextCreated();
+            throw new UnintentionalCodeFirstException();
         }
     
-        /// <summary>
-        /// Initialize a new ShopNBCEntities object.
-        /// </summary>
-        public TouristCatalogModelEntity(EntityConnection connection)
-            : base(connection, "ShopNBCEntities")
-        {
-            this.ContextOptions.LazyLoadingEnabled = true;
-            OnContextCreated();
-        }
-    
-        #endregion
-
-
-        #region Partial Methods
-
-        partial void OnContextCreated();
-
-        #endregion
-    
+        public DbSet<Campsite> Campsites { get; set; }
+        public DbSet<RouteDifficultyLevel> RouteDifficultyLevels { get; set; }
+        public DbSet<RouteGeoPoint> RouteGeoPoints { get; set; }
+        public DbSet<RouteImage> RouteImages { get; set; }
+        public DbSet<Route> Routes { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<WaterSource> WaterSources { get; set; }
     }
 }

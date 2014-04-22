@@ -16,7 +16,8 @@ namespace TouristRouteCatalog.Web.Controllers
         public ActionResult Index()
         {
             var testModel = LoadModel<TestModel>();
-            return View(testModel.GetProxy());
+            var data = testModel.GetProxy();
+            return View(data);
         }
 
     }

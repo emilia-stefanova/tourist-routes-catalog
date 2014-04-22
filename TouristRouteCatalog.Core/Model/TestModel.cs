@@ -21,9 +21,9 @@ namespace TouristRouteCatalog.Core.Model
 
         }
 
-        public TestProxy GetProxy()
+        public List<TestProxy> GetProxy()
         {
-            return new TestProxy();
+            return TestRep.Test();
         }
     }
 }

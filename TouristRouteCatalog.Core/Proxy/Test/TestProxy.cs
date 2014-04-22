@@ -8,5 +8,6 @@ namespace TouristRouteCatalog.Core.Proxy.Test
 {
     public class TestProxy
     {
+        public string username { get; set; }
     }
 }

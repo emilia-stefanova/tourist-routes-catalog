@@ -4,16 +4,411 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="TouristCatalogRouteModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
-        <EntityContainer Name="TouristCatalogRouteModelTargetContainer" >
+    <Schema Namespace="TouristCatalogRouteModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="TouristCatalogRouteModelStoreContainer">
+          <EntitySet Name="Campsites" EntityType="TouristCatalogRouteModel.Store.Campsites" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RouteDifficultyLevels" EntityType="TouristCatalogRouteModel.Store.RouteDifficultyLevels" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RouteGeoPoints" EntityType="TouristCatalogRouteModel.Store.RouteGeoPoints" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RouteImages" EntityType="TouristCatalogRouteModel.Store.RouteImages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Routes" EntityType="TouristCatalogRouteModel.Store.Routes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RoutesCampsites" EntityType="TouristCatalogRouteModel.Store.RoutesCampsites" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RoutesWaterSources" EntityType="TouristCatalogRouteModel.Store.RoutesWaterSources" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="TouristCatalogRouteModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WaterSources" EntityType="TouristCatalogRouteModel.Store.WaterSources" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_RouteGeoPoints_Routes" Association="TouristCatalogRouteModel.Store.FK_RouteGeoPoints_Routes">
+            <End Role="Routes" EntitySet="Routes" />
+            <End Role="RouteGeoPoints" EntitySet="RouteGeoPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RouteImages_Routes" Association="TouristCatalogRouteModel.Store.FK_RouteImages_Routes">
+            <End Role="Routes" EntitySet="Routes" />
+            <End Role="RouteImages" EntitySet="RouteImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Routes_RouteDifficultyLevels1" Association="TouristCatalogRouteModel.Store.FK_Routes_RouteDifficultyLevels1">
+            <End Role="RouteDifficultyLevels" EntitySet="RouteDifficultyLevels" />
+            <End Role="Routes" EntitySet="Routes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Routes_Users" Association="TouristCatalogRouteModel.Store.FK_Routes_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Routes" EntitySet="Routes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoutesCampsites_Campsites" Association="TouristCatalogRouteModel.Store.FK_RoutesCampsites_Campsites">
+            <End Role="Campsites" EntitySet="Campsites" />
+            <End Role="RoutesCampsites" EntitySet="RoutesCampsites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoutesCampsites_Routes" Association="TouristCatalogRouteModel.Store.FK_RoutesCampsites_Routes">
+            <End Role="Routes" EntitySet="Routes" />
+            <End Role="RoutesCampsites" EntitySet="RoutesCampsites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoutesWaterSources_Routes" Association="TouristCatalogRouteModel.Store.FK_RoutesWaterSources_Routes">
+            <End Role="Routes" EntitySet="Routes" />
+            <End Role="RoutesWaterSources" EntitySet="RoutesWaterSources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoutesWaterSources_WaterSources" Association="TouristCatalogRouteModel.Store.FK_RoutesWaterSources_WaterSources">
+            <End Role="WaterSources" EntitySet="WaterSources" />
+            <End Role="RoutesWaterSources" EntitySet="RoutesWaterSources" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+        <EntityType Name="Campsites">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="RouteDifficultyLevels">
+          <Key>
+            <PropertyRef Name="Difficulty" />
+          </Key>
+          <Property Name="Difficulty" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RouteGeoPoints">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RouteId" Type="int" Nullable="false" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+          <Property Name="OrderIndex" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RouteImages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ImageLocation" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RouteId" Type="int" Nullable="false" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Routes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="DifficultyLevel" Type="int" Nullable="false" />
+          <Property Name="Duration" Type="bigint" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Seasons" Type="nvarchar" MaxLength="50" />
+          <Property Name="PublicTransport" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="RoutesCampsites">
+          <Key>
+            <PropertyRef Name="RouteId" />
+            <PropertyRef Name="CampsiteId" />
+          </Key>
+          <Property Name="RouteId" Type="int" Nullable="false" />
+          <Property Name="CampsiteId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoutesWaterSources">
+          <Key>
+            <PropertyRef Name="RouteId" />
+            <PropertyRef Name="WaterSourceId" />
+          </Key>
+          <Property Name="RouteId" Type="int" Nullable="false" />
+          <Property Name="WaterSourceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ImageLocation" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="WaterSources">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_RouteGeoPoints_Routes">
+          <End Role="Routes" Type="TouristCatalogRouteModel.Store.Routes" Multiplicity="1" />
+          <End Role="RouteGeoPoints" Type="TouristCatalogRouteModel.Store.RouteGeoPoints" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RouteGeoPoints">
+              <PropertyRef Name="RouteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RouteImages_Routes">
+          <End Role="Routes" Type="TouristCatalogRouteModel.Store.Routes" Multiplicity="1" />
+          <End Role="RouteImages" Type="TouristCatalogRouteModel.Store.RouteImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RouteImages">
+              <PropertyRef Name="RouteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Routes_RouteDifficultyLevels1">
+          <End Role="RouteDifficultyLevels" Type="TouristCatalogRouteModel.Store.RouteDifficultyLevels" Multiplicity="1" />
+          <End Role="Routes" Type="TouristCatalogRouteModel.Store.Routes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RouteDifficultyLevels">
+              <PropertyRef Name="Difficulty" />
+            </Principal>
+            <Dependent Role="Routes">
+              <PropertyRef Name="DifficultyLevel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Routes_Users">
+          <End Role="Users" Type="TouristCatalogRouteModel.Store.Users" Multiplicity="1" />
+          <End Role="Routes" Type="TouristCatalogRouteModel.Store.Routes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Routes">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoutesCampsites_Campsites">
+          <End Role="Campsites" Type="TouristCatalogRouteModel.Store.Campsites" Multiplicity="1" />
+          <End Role="RoutesCampsites" Type="TouristCatalogRouteModel.Store.RoutesCampsites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campsites">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoutesCampsites">
+              <PropertyRef Name="CampsiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoutesCampsites_Routes">
+          <End Role="Routes" Type="TouristCatalogRouteModel.Store.Routes" Multiplicity="1" />
+          <End Role="RoutesCampsites" Type="TouristCatalogRouteModel.Store.RoutesCampsites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoutesCampsites">
+              <PropertyRef Name="RouteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoutesWaterSources_Routes">
+          <End Role="Routes" Type="TouristCatalogRouteModel.Store.Routes" Multiplicity="1" />
+          <End Role="RoutesWaterSources" Type="TouristCatalogRouteModel.Store.RoutesWaterSources" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoutesWaterSources">
+              <PropertyRef Name="RouteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoutesWaterSources_WaterSources">
+          <End Role="WaterSources" Type="TouristCatalogRouteModel.Store.WaterSources" Multiplicity="1" />
+          <End Role="RoutesWaterSources" Type="TouristCatalogRouteModel.Store.RoutesWaterSources" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WaterSources">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoutesWaterSources">
+              <PropertyRef Name="WaterSourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="TouristCatalogRouteModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="TouristCatalogModelEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Campsites" EntityType="TouristCatalogRouteModel.Campsite" />
+          <EntitySet Name="RouteDifficultyLevels" EntityType="TouristCatalogRouteModel.RouteDifficultyLevel" />
+          <EntitySet Name="RouteGeoPoints" EntityType="TouristCatalogRouteModel.RouteGeoPoint" />
+          <EntitySet Name="RouteImages" EntityType="TouristCatalogRouteModel.RouteImage" />
+          <EntitySet Name="Routes" EntityType="TouristCatalogRouteModel.Route" />
+          <EntitySet Name="Users" EntityType="TouristCatalogRouteModel.User" />
+          <EntitySet Name="WaterSources" EntityType="TouristCatalogRouteModel.WaterSource" />
+          <AssociationSet Name="FK_Routes_RouteDifficultyLevels1" Association="TouristCatalogRouteModel.FK_Routes_RouteDifficultyLevels1">
+            <End Role="RouteDifficultyLevel" EntitySet="RouteDifficultyLevels" />
+            <End Role="Route" EntitySet="Routes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RouteGeoPoints_Routes" Association="TouristCatalogRouteModel.FK_RouteGeoPoints_Routes">
+            <End Role="Route" EntitySet="Routes" />
+            <End Role="RouteGeoPoint" EntitySet="RouteGeoPoints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RouteImages_Routes" Association="TouristCatalogRouteModel.FK_RouteImages_Routes">
+            <End Role="Route" EntitySet="Routes" />
+            <End Role="RouteImage" EntitySet="RouteImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Routes_Users" Association="TouristCatalogRouteModel.FK_Routes_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Route" EntitySet="Routes" />
+          </AssociationSet>
+          <AssociationSet Name="RoutesCampsites" Association="TouristCatalogRouteModel.RoutesCampsites">
+            <End Role="Campsite" EntitySet="Campsites" />
+            <End Role="Route" EntitySet="Routes" />
+          </AssociationSet>
+          <AssociationSet Name="RoutesWaterSources" Association="TouristCatalogRouteModel.RoutesWaterSources">
+            <End Role="Route" EntitySet="Routes" />
+            <End Role="WaterSource" EntitySet="WaterSources" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Campsite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TypeId" Nullable="false" />
+          <Property Type="Double" Name="Longitude" Nullable="false" />
+          <Property Type="Double" Name="Latitude" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Routes" Relationship="TouristCatalogRouteModel.RoutesCampsites" FromRole="Campsite" ToRole="Route" />
+        </EntityType>
+        <EntityType Name="RouteDifficultyLevel">
+          <Key>
+            <PropertyRef Name="Difficulty" />
+          </Key>
+          <Property Type="Int32" Name="Difficulty" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Routes" Relationship="TouristCatalogRouteModel.FK_Routes_RouteDifficultyLevels1" FromRole="RouteDifficultyLevel" ToRole="Route" />
+        </EntityType>
+        <EntityType Name="RouteGeoPoint">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="RouteId" Nullable="false" />
+          <Property Type="Double" Name="Longitude" Nullable="false" />
+          <Property Type="Double" Name="Latitude" Nullable="false" />
+          <Property Type="Int32" Name="OrderIndex" Nullable="false" />
+          <NavigationProperty Name="Route" Relationship="TouristCatalogRouteModel.FK_RouteGeoPoints_Routes" FromRole="RouteGeoPoint" ToRole="Route" />
+        </EntityType>
+        <EntityType Name="RouteImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ImageLocation" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RouteId" Nullable="false" />
+          <Property Type="Double" Name="Longitude" />
+          <Property Type="Double" Name="Latitude" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Route" Relationship="TouristCatalogRouteModel.FK_RouteImages_Routes" FromRole="RouteImage" ToRole="Route" />
+        </EntityType>
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CreatorId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="DifficultyLevel" Nullable="false" />
+          <Property Type="Int64" Name="Duration" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Seasons" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PublicTransport" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RouteDifficultyLevel" Relationship="TouristCatalogRouteModel.FK_Routes_RouteDifficultyLevels1" FromRole="Route" ToRole="RouteDifficultyLevel" />
+          <NavigationProperty Name="RouteGeoPoints" Relationship="TouristCatalogRouteModel.FK_RouteGeoPoints_Routes" FromRole="Route" ToRole="RouteGeoPoint" />
+          <NavigationProperty Name="RouteImages" Relationship="TouristCatalogRouteModel.FK_RouteImages_Routes" FromRole="Route" ToRole="RouteImage" />
+          <NavigationProperty Name="User" Relationship="TouristCatalogRouteModel.FK_Routes_Users" FromRole="Route" ToRole="User" />
+          <NavigationProperty Name="Campsites" Relationship="TouristCatalogRouteModel.RoutesCampsites" FromRole="Route" ToRole="Campsite" />
+          <NavigationProperty Name="WaterSources" Relationship="TouristCatalogRouteModel.RoutesWaterSources" FromRole="Route" ToRole="WaterSource" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ImageLocation" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Routes" Relationship="TouristCatalogRouteModel.FK_Routes_Users" FromRole="User" ToRole="Route" />
+        </EntityType>
+        <EntityType Name="WaterSource">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Double" Name="Longitude" />
+          <Property Type="Double" Name="Latitude" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Routes" Relationship="TouristCatalogRouteModel.RoutesWaterSources" FromRole="WaterSource" ToRole="Route" />
+        </EntityType>
+        <Association Name="FK_Routes_RouteDifficultyLevels1">
+          <End Type="TouristCatalogRouteModel.RouteDifficultyLevel" Role="RouteDifficultyLevel" Multiplicity="1" />
+          <End Type="TouristCatalogRouteModel.Route" Role="Route" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RouteDifficultyLevel">
+              <PropertyRef Name="Difficulty" />
+            </Principal>
+            <Dependent Role="Route">
+              <PropertyRef Name="DifficultyLevel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RouteGeoPoints_Routes">
+          <End Type="TouristCatalogRouteModel.Route" Role="Route" Multiplicity="1" />
+          <End Type="TouristCatalogRouteModel.RouteGeoPoint" Role="RouteGeoPoint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RouteGeoPoint">
+              <PropertyRef Name="RouteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RouteImages_Routes">
+          <End Type="TouristCatalogRouteModel.Route" Role="Route" Multiplicity="1" />
+          <End Type="TouristCatalogRouteModel.RouteImage" Role="RouteImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Route">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RouteImage">
+              <PropertyRef Name="RouteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Routes_Users">
+          <End Type="TouristCatalogRouteModel.User" Role="User" Multiplicity="1" />
+          <End Type="TouristCatalogRouteModel.Route" Role="Route" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Route">
+              <PropertyRef Name="CreatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RoutesCampsites">
+          <End Type="TouristCatalogRouteModel.Campsite" Role="Campsite" Multiplicity="*" />
+          <End Type="TouristCatalogRouteModel.Route" Role="Route" Multiplicity="*" />
+        </Association>
+        <Association Name="RoutesWaterSources">
+          <End Type="TouristCatalogRouteModel.Route" Role="Route" Multiplicity="*" />
+          <End Type="TouristCatalogRouteModel.WaterSource" Role="WaterSource" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -21,7 +416,102 @@
       <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
         <Alias Key="Model" Value="TouristCatalogRouteModel" />
         <Alias Key="Target" Value="TouristCatalogRouteModel.Store" />
-        <EntityContainerMapping CdmEntityContainer="TouristCatalogModelEntity" StorageEntityContainer="TouristCatalogRouteModelTargetContainer">
+        <EntityContainerMapping CdmEntityContainer="TouristCatalogModelEntity" StorageEntityContainer="TouristCatalogRouteModelStoreContainer">
+          <EntitySetMapping Name="Campsites">
+            <EntityTypeMapping TypeName="TouristCatalogRouteModel.Campsite">
+              <MappingFragment StoreEntitySet="Campsites">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RouteDifficultyLevels">
+            <EntityTypeMapping TypeName="TouristCatalogRouteModel.RouteDifficultyLevel">
+              <MappingFragment StoreEntitySet="RouteDifficultyLevels">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RouteGeoPoints">
+            <EntityTypeMapping TypeName="TouristCatalogRouteModel.RouteGeoPoint">
+              <MappingFragment StoreEntitySet="RouteGeoPoints">
+                <ScalarProperty Name="OrderIndex" ColumnName="OrderIndex" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RouteImages">
+            <EntityTypeMapping TypeName="TouristCatalogRouteModel.RouteImage">
+              <MappingFragment StoreEntitySet="RouteImages">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routes">
+            <EntityTypeMapping TypeName="TouristCatalogRouteModel.Route">
+              <MappingFragment StoreEntitySet="Routes">
+                <ScalarProperty Name="PublicTransport" ColumnName="PublicTransport" />
+                <ScalarProperty Name="Seasons" ColumnName="Seasons" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="DifficultyLevel" ColumnName="DifficultyLevel" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TouristCatalogRouteModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WaterSources">
+            <EntityTypeMapping TypeName="TouristCatalogRouteModel.WaterSource">
+              <MappingFragment StoreEntitySet="WaterSources">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="RoutesCampsites" TypeName="TouristCatalogRouteModel.RoutesCampsites" StoreEntitySet="RoutesCampsites">
+            <EndProperty Name="Route">
+              <ScalarProperty Name="Id" ColumnName="RouteId" />
+            </EndProperty>
+            <EndProperty Name="Campsite">
+              <ScalarProperty Name="Id" ColumnName="CampsiteId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RoutesWaterSources" TypeName="TouristCatalogRouteModel.RoutesWaterSources" StoreEntitySet="RoutesWaterSources">
+            <EndProperty Name="WaterSource">
+              <ScalarProperty Name="Id" ColumnName="WaterSourceId" />
+            </EndProperty>
+            <EndProperty Name="Route">
+              <ScalarProperty Name="Id" ColumnName="RouteId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -38,6 +528,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

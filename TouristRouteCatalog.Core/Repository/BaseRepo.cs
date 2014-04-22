@@ -2,6 +2,7 @@
 using ShopNBC.Core.DAL;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Objects;
 using System.Linq;
 using System.Text;
@@ -10,19 +11,29 @@ using TouristRouteCatalog.Core.DAL;
 
 namespace TouristRouteCatalog.Core.Repository
 {
-    public abstract class BaseRepo<T> : IDisposable where T : class
+    public abstract class BaseRepo<TEntity> where TEntity : class
     {
+        #region Constructor
+
+        [InjectionConstructor]
+        public BaseRepo(TouristCatalogModelEntity context)
+        {
+            this.Context = context;
+        }
+
+        #endregion
+
         #region Private Variables
 
-        private IObjectSet<T> objectSet;
+        private DbSet<TEntity> objectSet;
 
-        private IObjectSet<T> ObjectSet
+        private DbSet<TEntity> ObjectSet
         {
             get
             {
                 if (this.objectSet == null)
                 {
-                    this.objectSet = this.Context.CreateObjectSet<T>();
+                    this.objectSet = this.Context.Set<TEntity>();
                 }
 
                 return this.objectSet;
@@ -37,38 +48,27 @@ namespace TouristRouteCatalog.Core.Repository
 
         #endregion
 
-        #region Constructor
-
-        [InjectionConstructor]
-        public BaseRepo(TouristCatalogModelEntity context)
-        {
-            Context = context;
-        }
-
-        #endregion
-
-
         #region Public Methods
 
-        public virtual void Add(T entity)
+        public virtual void Add(TEntity entity)
         {
-            this.ObjectSet.AddObject(entity);
+            this.ObjectSet.Add(entity);
         }
 
-        public virtual void Add(IEnumerable<T> entities)
+        public virtual void Add(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
             {
-                this.ObjectSet.AddObject(entity);
+                this.ObjectSet.Add(entity);
             }
         }
 
-        public virtual void Attach(T entity)
+        public virtual void Attach(TEntity entity)
         {
             this.ObjectSet.Attach(entity);
         }
 
-        public virtual void Attach(IEnumerable<T> entities)
+        public virtual void Attach(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
             {
@@ -76,91 +76,78 @@ namespace TouristRouteCatalog.Core.Repository
             }
         }
 
-        public virtual long Create(T entity)
+        public virtual long Create(TEntity entity)
         {
-            this.ObjectSet.AddObject(entity);
+            this.ObjectSet.Add(entity);
 
             return this.SaveChanges();
         }
 
-        public virtual void Create(IEnumerable<T> entities)
+        public virtual void Create(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
             {
-                this.ObjectSet.AddObject(entity);
+                this.ObjectSet.Add(entity);
             }
 
             this.SaveChanges();
         }
 
-        public virtual long Delete(T entity)
+        public virtual long Delete(TEntity entity)
         {
-            this.ObjectSet.DeleteObject(entity);
+            this.ObjectSet.Remove(entity);
 
             return this.SaveChanges();
         }
 
-        public virtual long Delete(IEnumerable<T> entities)
+        public virtual long Delete(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
             {
-                this.ObjectSet.DeleteObject(entity);
+                this.ObjectSet.Remove(entity);
             }
 
             return this.SaveChanges();
         }
 
-        public virtual void DeleteWithoutSave(T entity)
+        public virtual void DeleteWithoutSave(TEntity entity)
         {
-            this.ObjectSet.DeleteObject(entity);
+            this.ObjectSet.Remove(entity);
         }
 
-        public virtual void DeleteWithoutSave(IEnumerable<T> entities)
+        public virtual void DeleteWithoutSave(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
             {
-                this.ObjectSet.DeleteObject(entity);
+                this.ObjectSet.Remove(entity);
             }
         }
 
-        public virtual void DeleteWithoutSave<G>(IEnumerable<G> entities) where G : class
-        {
-            IObjectSet<G> ObjectSetLocal = this.Context.CreateObjectSet<G>();
-
-            for (int i = 0; i < entities.Count(); i++)
-            {
-                ObjectSetLocal.DeleteObject(entities.ElementAt(i));
-            }
-        }
         public virtual int SaveChanges()
         {
-            return this.Context.SaveChanges();
+            try
+            {
+                return this.Context.SaveChanges();
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException e)
+            {
+                string exception = "";
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    exception = string.Format("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        exception += string.Format("- Property: \"{0}\", Error: \"{1}\"",
+                            ve.PropertyName, ve.ErrorMessage);
+                    }
+                }
+                throw new Exception(exception);
+            }
         }
 
         #endregion
 
-
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                // free managed resources
-                if (this.Context != null)
-                {
-                    this.Context.Dispose();
-                    this.Context = null;
-                }
-            }
-
-            // free native resources if there are any.
-
-        }
     }
+
 }
