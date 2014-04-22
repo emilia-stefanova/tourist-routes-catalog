@@ -121,8 +121,15 @@
     <Compile Include="Proxy\Categories\CategoriesProxy.cs" />
     <Compile Include="Proxy\Test\TestProxy.cs" />
     <Compile Include="Repository\BaseRepo.cs" />
+    <Compile Include="Repository\CampsiteRepo.cs" />
     <Compile Include="Repository\CategoryRepo.cs" />
+    <Compile Include="Repository\RouteDifficultyLevelRepo.cs" />
+    <Compile Include="Repository\RouteGeoPointRepo.cs" />
+    <Compile Include="Repository\RouteImageRepo.cs" />
+    <Compile Include="Repository\RouteRepo.cs" />
     <Compile Include="Repository\TestRepo.cs" />
+    <Compile Include="Repository\UserRepo.cs" />
+    <Compile Include="Repository\WaterSourceRepo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -25,18 +25,18 @@ namespace TouristRouteCatalog.Core.Repository
 
         #region Private Variables
 
-        private DbSet<TEntity> objectSet;
+        private DbSet<TEntity> dbSet;
 
-        private DbSet<TEntity> ObjectSet
+        private DbSet<TEntity> DbSet
         {
             get
             {
-                if (this.objectSet == null)
+                if (this.dbSet == null)
                 {
-                    this.objectSet = this.Context.Set<TEntity>();
+                    this.dbSet = this.Context.Set<TEntity>();
                 }
 
-                return this.objectSet;
+                return this.dbSet;
             }
         }
 
@@ -52,33 +52,33 @@ namespace TouristRouteCatalog.Core.Repository
 
         public virtual void Add(TEntity entity)
         {
-            this.ObjectSet.Add(entity);
+            this.DbSet.Add(entity);
         }
 
         public virtual void Add(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
             {
-                this.ObjectSet.Add(entity);
+                this.DbSet.Add(entity);
             }
         }
 
         public virtual void Attach(TEntity entity)
         {
-            this.ObjectSet.Attach(entity);
+            this.DbSet.Attach(entity);
         }
 
         public virtual void Attach(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
             {
-                this.ObjectSet.Attach(entity);
+                this.DbSet.Attach(entity);
             }
         }
 
         public virtual long Create(TEntity entity)
         {
-            this.ObjectSet.Add(entity);
+            this.DbSet.Add(entity);
 
             return this.SaveChanges();
         }
@@ -87,7 +87,7 @@ namespace TouristRouteCatalog.Core.Repository
         {
             foreach (var entity in entities)
             {
-                this.ObjectSet.Add(entity);
+                this.DbSet.Add(entity);
             }
 
             this.SaveChanges();
@@ -95,7 +95,7 @@ namespace TouristRouteCatalog.Core.Repository
 
         public virtual long Delete(TEntity entity)
         {
-            this.ObjectSet.Remove(entity);
+            this.DbSet.Remove(entity);
 
             return this.SaveChanges();
         }
@@ -104,7 +104,7 @@ namespace TouristRouteCatalog.Core.Repository
         {
             foreach (var entity in entities)
             {
-                this.ObjectSet.Remove(entity);
+                this.DbSet.Remove(entity);
             }
 
             return this.SaveChanges();
@@ -112,14 +112,14 @@ namespace TouristRouteCatalog.Core.Repository
 
         public virtual void DeleteWithoutSave(TEntity entity)
         {
-            this.ObjectSet.Remove(entity);
+            this.DbSet.Remove(entity);
         }
 
         public virtual void DeleteWithoutSave(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
             {
-                this.ObjectSet.Remove(entity);
+                this.DbSet.Remove(entity);
             }
         }
 
