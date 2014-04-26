@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using TouristRouteCatalog.Core.Model;
 
 namespace TouristRouteCatalog.Core.Models
 {
-    public partial class RouteImage
+    public partial class RouteImage : IModel
     {
         public int Id { get; set; }
         public string ImageLocation { get; set; }

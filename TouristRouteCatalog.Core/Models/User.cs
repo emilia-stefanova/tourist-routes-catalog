@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using TouristRouteCatalog.Core.Model;
 
 namespace TouristRouteCatalog.Core.Models
 {
-    public partial class User
+    public partial class User : IModel
     {
         public User()
         {

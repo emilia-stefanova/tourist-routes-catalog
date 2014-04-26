@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using TouristRouteCatalog.Core.Model;
 
 namespace TouristRouteCatalog.Core.Models
 {
-    public partial class RouteGeoPoint
+    public partial class RouteGeoPoint : IModel
     {
         public int Id { get; set; }
         public int RouteId { get; set; }

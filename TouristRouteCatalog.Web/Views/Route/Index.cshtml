@@ -1,0 +1,27 @@
+﻿@model List<Route>
+
+@{
+    ViewBag.Title = "Index";
+    
+}
+
+<h2>Index</h2>
+<h1>Index</h1>
+<h2 class="text-center">this is it!</h2>
+<table class="table" id="routesTable">
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(function () {
+            $('#routesTable').dataTable({
+                bLengthChange: false,
+                bFilter: false,
+                aoColumns: [null, { "bSearchable": false, "bSortable": false }]
+            });
+        });
+
+    </script>
+}
