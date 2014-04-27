@@ -4,7 +4,7 @@ using TouristRouteCatalog.Core.Model;
 
 namespace TouristRouteCatalog.Core.Models
 {
-    public partial class RouteImage : IModel
+    public partial class RouteImage
     {
         public int Id { get; set; }
         public string ImageLocation { get; set; }

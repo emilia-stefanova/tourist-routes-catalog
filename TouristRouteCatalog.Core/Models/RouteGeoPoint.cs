@@ -4,7 +4,7 @@ using TouristRouteCatalog.Core.Model;
 
 namespace TouristRouteCatalog.Core.Models
 {
-    public partial class RouteGeoPoint : IModel
+    public partial class RouteGeoPoint
     {
         public int Id { get; set; }
         public int RouteId { get; set; }

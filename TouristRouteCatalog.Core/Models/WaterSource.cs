@@ -4,7 +4,7 @@ using TouristRouteCatalog.Core.Model;
 
 namespace TouristRouteCatalog.Core.Models
 {
-    public partial class WaterSource : IModel
+    public partial class WaterSource
     {
         public WaterSource()
         {

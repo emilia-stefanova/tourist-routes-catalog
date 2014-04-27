@@ -4,7 +4,7 @@ using TouristRouteCatalog.Core.Model;
 
 namespace TouristRouteCatalog.Core.Models
 {
-    public partial class Campsite : IModel
+    public partial class Campsite
     {
         public Campsite()
         {
