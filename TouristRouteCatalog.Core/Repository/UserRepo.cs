@@ -9,7 +9,7 @@ using TouristRouteCatalog.Core.Proxy.Test;
 
 namespace TouristRouteCatalog.Core.Repository
 {
-    public class UserRepo :BaseRepo<UserRepo>
+    public class UserRepo :BaseRepo<User>
     {
         [InjectionConstructor]
         public UserRepo(TouristCatalogModelEntity context)

@@ -9,7 +9,7 @@ using TouristRouteCatalog.Core.Proxy.Test;
 
 namespace TouristRouteCatalog.Core.Repository
 {
-    public class RouteDifficultyLevelRepo : BaseRepo<RouteDifficultyLevelRepo>
+    public class RouteDifficultyLevelRepo : BaseRepo<RouteDifficultyLevel>
     {
         [InjectionConstructor]
         public RouteDifficultyLevelRepo(TouristCatalogModelEntity context)
