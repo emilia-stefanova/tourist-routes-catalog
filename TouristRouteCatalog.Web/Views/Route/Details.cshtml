@@ -1,0 +1,64 @@
+﻿@model TouristRouteCatalog.Core.Proxy.Routes.RouteProxy
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+
+<fieldset>
+    <legend></legend>
+
+    @*<div class="display-label">
+         @Html.DisplayNameFor(model => model.CreatorId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatorId)
+    </div>
+    
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>*@
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DifficultyLevel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DifficultyLevel)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Duration)
+    </div>
+    <div class="display-field">
+        @TimeSpan.FromTicks(Model.Duration.Value)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Seasons)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Seasons)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PublicTransport)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PublicTransport)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Редактиране", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Назад", "Index")
+</p>

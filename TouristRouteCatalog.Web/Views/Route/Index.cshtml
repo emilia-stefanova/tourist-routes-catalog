@@ -1,22 +1,31 @@
-﻿@model List<Route>
-
+﻿@model List<TouristRouteCatalog.Core.Proxy.Routes.RouteProxy>
 @{
     ViewBag.Title = "Index";
-    
+
 }
-
-<h2>Index</h2>
-<h1>Index</h1>
-<h2 class="text-center">this is it!</h2>
+<h1>Списък с всички маршрути</h1>
 <table class="table" id="routesTable">
-
+    <thead>
+        <tr>
+            <th>Маршрут</th>
+            <th>Описание</th>
+        </tr>
+    </thead>
+    @foreach (var r in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(r.Name, "Details", new { controller = "Route", action = "Details", id = r.Id })</td>
+            <td>@r.Description</td>
+        </tr>
+    }
+</table>
 
 @section scripts
 {
     <script type="text/javascript">
 
         $(function () {
-            $('#routesTable').dataTable({
+            $('#routesTable').DataTable({
                 bLengthChange: false,
                 bFilter: false,
                 aoColumns: [null, { "bSearchable": false, "bSortable": false }]

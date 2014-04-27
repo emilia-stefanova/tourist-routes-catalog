@@ -890,6 +890,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Route\Index.cshtml" />
+    <Content Include="Views\Route\Details.cshtml" />
+    <Content Include="Views\Route\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
