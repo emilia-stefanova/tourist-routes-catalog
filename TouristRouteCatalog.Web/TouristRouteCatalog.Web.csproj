@@ -140,7 +140,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Abstract\BaseController.cs" />
     <Compile Include="Controllers\Abstract\BasePage.cs" />
-    <Compile Include="Controllers\RouteImageController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Global.asax.cs">
