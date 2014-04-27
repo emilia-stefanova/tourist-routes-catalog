@@ -4,7 +4,7 @@ using TouristRouteCatalog.Core.Model;
 
 namespace TouristRouteCatalog.Core.Models
 {
-    public partial class RouteDifficultyLevel : IModel
+    public partial class RouteDifficultyLevel
     {
         public RouteDifficultyLevel()
         {

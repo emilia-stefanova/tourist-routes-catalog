@@ -16,7 +16,6 @@ namespace TouristRouteCatalog.Web.Controllers
 
         public ActionResult Index()
         {
-            Route route = this.LoadModel<Route>();
             return View();
         }
 
