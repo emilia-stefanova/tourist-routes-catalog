@@ -896,6 +896,7 @@
     <Content Include="Views\Route\Edit.cshtml" />
     <Content Include="Views\RouteImage\Index.cshtml" />
     <Content Include="Views\RouteImage\Get.cshtml" />
+    <Content Include="Views\Route\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

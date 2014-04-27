@@ -35,5 +35,11 @@ namespace TouristRouteCatalog.Core.Model
         {
             return RouteRepo.UpdateRoute(route);
         }
+
+        public bool CreateRoute(RouteProxy route)
+        {
+            RouteRepo.CreateRoute(route);
+            return true;
+        }
     }
 }

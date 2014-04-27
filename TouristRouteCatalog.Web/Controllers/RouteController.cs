@@ -48,6 +48,24 @@ namespace TouristRouteCatalog.Web.Controllers
             return View(route);
         }
 
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(RouteProxy route)
+        {
+            if (ModelState.IsValid)
+            {
+                var rm = LoadModel<RoutesModel>();
+                rm.CreateRoute(route);
+                return RedirectToAction("Index");
+            }
+            return View(route);
+        }
+
         //private static List<RouteProxy> GetDummyRoutes(int count = 50)
         //{
         //    var routes = new List<RouteProxy>();
