@@ -9,7 +9,7 @@ using TouristRouteCatalog.Core.Proxy.Test;
 
 namespace TouristRouteCatalog.Core.Repository
 {
-    public class WaterSourceRepo : BaseRepo<WaterSourceRepo>
+    public class WaterSourceRepo : BaseRepo<WaterSource>
     {
         [InjectionConstructor]
         public WaterSourceRepo(TouristCatalogModelEntity context)

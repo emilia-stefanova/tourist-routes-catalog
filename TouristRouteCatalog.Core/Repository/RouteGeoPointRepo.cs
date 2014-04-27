@@ -9,7 +9,7 @@ using TouristRouteCatalog.Core.Proxy.Test;
 
 namespace TouristRouteCatalog.Core.Repository
 {
-    public class RouteGeoPointRepo : BaseRepo<RouteGeoPointRepo>
+    public class RouteGeoPointRepo : BaseRepo<RouteGeoPoint>
     {
         [InjectionConstructor]
         public RouteGeoPointRepo(TouristCatalogModelEntity context)
