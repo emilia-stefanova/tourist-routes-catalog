@@ -246,6 +246,7 @@
     <Content Include="Scripts\DataTables-1.9.4\media\unit_testing\templates\js_data.php" />
     <Content Include="Scripts\DataTables-1.9.4\media\unit_testing\templates\js_data_mixed_types.php" />
     <Content Include="Scripts\DataTables-1.9.4\media\unit_testing\templates\two_tables.php" />
+    <None Include="Properties\PublishProfiles\Somee.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\DataTables-1.9.4\docs\34cdb56b2c.html" />
@@ -894,8 +895,6 @@
     <Content Include="Views\Route\Index.cshtml" />
     <Content Include="Views\Route\Details.cshtml" />
     <Content Include="Views\Route\Edit.cshtml" />
-    <Content Include="Views\RouteImage\Index.cshtml" />
-    <Content Include="Views\RouteImage\Get.cshtml" />
     <Content Include="Views\Route\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
