@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TouristRouteCatalog.Core.Proxy.RouteImage
+namespace TouristRouteCatalog.Core.Proxy
 {
     public class RouteImageProxy
     {

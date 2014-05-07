@@ -5,8 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TouristRouteCatalog.Core.DAL;
-using TouristRouteCatalog.Core.Proxy.RouteImage;
-using TouristRouteCatalog.Core.Proxy.Test;
+using TouristRouteCatalog.Core.Proxy;
 
 namespace TouristRouteCatalog.Core.Repository
 {

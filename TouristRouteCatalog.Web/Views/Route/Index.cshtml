@@ -1,4 +1,4 @@
-﻿@model List<TouristRouteCatalog.Core.Proxy.Routes.RouteProxy>
+﻿@model List<TouristRouteCatalog.Core.Proxy.RouteProxy>
 @{
     ViewBag.Title = "Index";
 
@@ -9,6 +9,7 @@
         <tr>
             <th>Маршрут</th>
             <th>Описание</th>
+            <th>Описание</th>
         </tr>
     </thead>
     @foreach (var r in Model)
@@ -16,21 +17,52 @@
         <tr>
             <td>@Html.ActionLink(r.Name, "Details", new { controller = "Route", action = "Details", id = r.Id })</td>
             <td>@r.Description</td>
+            <td><input type="button" class="delete-button" data-route-id="@r.Id" data-route-name="@r.Name" value="Изтрии" /></td>
         </tr>
     }
 </table>
+
+<div id="dialog-confirm" title="Изтриване на маршрут?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+</div>
 
 @section scripts
 {
     <script type="text/javascript">
 
         $(function () {
-            $('#routesTable').DataTable({
+            var $routesTable = $("#routesTable"),
+                $deleteButtons = $(".delete-button"),
+                $dialog = $("#dialog-confirm"),
+                $diaglogText = $("#dialog-confirm > p");
+
+            $routesTable.DataTable({
                 bLengthChange: false,
                 bFilter: false,
-                aoColumns: [null, { "bSearchable": false, "bSortable": false }]
+                aoColumns: [null, { "bSearchable": false, "bSortable": false }, null]
+            });
+
+            $deleteButtons.click(function (evt, ui) {
+                var $this = $(this);
+                $diaglogText.text("Сигурни ли сте, че искате да изтриете маршрут \"" + $(this).data("route-name") + "\"?");
+                $dialog.data("route-id", $this.data("route-id"));
+                $dialog.dialog("open");
+            });
+
+            $dialog.dialog({
+                resizable: false,
+                height: 240,
+                modal: true,
+                autoOpen: false,
+                buttons: {
+                    "Изтриване": function () {
+                        $(this).dialog("close");
+                    },
+                    "Отказ": function () {
+                        $(this).dialog("close");
+                    }
+                }
             });
         });
-
     </script>
 }

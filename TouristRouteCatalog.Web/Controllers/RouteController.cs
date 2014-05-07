@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TouristRouteCatalog.Web.Controllers.Abstract;
 using TouristRouteCatalog.Core.Model;
-using TouristRouteCatalog.Core.Proxy.Routes;
+using TouristRouteCatalog.Core.Proxy;
 
 namespace TouristRouteCatalog.Web.Controllers
 {
@@ -65,6 +65,18 @@ namespace TouristRouteCatalog.Web.Controllers
             }
             return View(route);
         }
+
+        [HttpPost]
+        public ActionResult Delete(int routeId)
+        {
+            if (ModelState.IsValid)
+            {
+                var rm = LoadModel<RoutesModel>();
+                rm.DeleteRoute(routeId);
+            }
+            return RedirectToAction("Index");
+        }
+
 
         //private static List<RouteProxy> GetDummyRoutes(int count = 50)
         //{

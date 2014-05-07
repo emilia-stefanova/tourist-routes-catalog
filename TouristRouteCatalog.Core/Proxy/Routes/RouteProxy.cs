@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace TouristRouteCatalog.Core.Proxy.Routes
+namespace TouristRouteCatalog.Core.Proxy
 {
     public class RouteProxy
     {
@@ -27,7 +24,9 @@ namespace TouristRouteCatalog.Core.Proxy.Routes
         }
 
         public int Id { get; set; }
+
         public int CreatorId { get; set; }
+
         [DisplayName("Име")]
         public string Name { get; set; }
 
@@ -45,5 +44,13 @@ namespace TouristRouteCatalog.Core.Proxy.Routes
 
         [DisplayName("Градски Транспорт")]
         public string PublicTransport { get; set; }
+
+        public ICollection<CampsiteProxy> Campsites { get; set; }
+
+        public ICollection<WaterSourceProxy> WaterSources { get; set; }
+
+        public ICollection<RouteGeoPointProxy> GeoPoints { get; set; }
+
+        public ICollection<RouteImageProxy> Images { get; set; }
     }
 }

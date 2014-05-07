@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using TouristRouteCatalog.Core.DAL;
-using TouristRouteCatalog.Core.Proxy.Routes;
+using TouristRouteCatalog.Core.Proxy;
 
 namespace TouristRouteCatalog.Core.Repository
 {
-    public class RouteRepo : BaseRepo<RouteRepo>
+    public class RouteRepo : BaseRepo<RouteProxy>
     {
         [InjectionConstructor]
         public RouteRepo(TouristCatalogModelEntity context)

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TouristRouteCatalog.Core.Proxy.RouteImage;
+using TouristRouteCatalog.Core.Proxy;
 using TouristRouteCatalog.Core.Repository;
 
 namespace TouristRouteCatalog.Core.Model
