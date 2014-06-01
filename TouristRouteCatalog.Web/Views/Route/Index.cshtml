@@ -6,9 +6,15 @@
 <h1>Списък с всички маршрути</h1>
 @using (Html.BeginForm("Index", "Route", FormMethod.Get, new {id = "searchForm"}))
 {
+    <label>Text:</label>
     @Html.TextBox("search")
+    <label>Latitude:</label>    
+    @Html.TextBox("lat")
+    <label>Longitude:</label>    
+    @Html.TextBox("lng")
     <input type="submit" value="Search" />
     <input type="button" value="Clear" onclick="clearForm()" />
+    <input type="button" value="Get current position" onclick="getCurrentPosition()" />
 }
 <table class="table" id="routesTable">
     <thead>
@@ -40,10 +46,26 @@
 
         function clearForm() {
             var box = $("[name=search]");
+            var box2 = $("[name=lat]");
+            var box3 = $("[name=lng]");
             box.val("");
+            box2.val("");
+            box3.val("");
             $("#searchForm").submit();
         }
 
+        function getCurrentPosition() {
+            navigator.geolocation.getCurrentPosition(GetLocationFilter);
+        }
+
+        function GetLocationFilter(location) {
+            var lat = $("[name=lat]");
+            var lng = $("[name=lng]");
+            console.info(location);
+            lat.val(location.coords.latitude);
+            lng.val(location.coords.longitude);
+            $("#searchForm").submit();
+        }
         $(function () {
             var $routesTable = $("#routesTable"),
                 $deleteButtons = $(".delete-button"),
