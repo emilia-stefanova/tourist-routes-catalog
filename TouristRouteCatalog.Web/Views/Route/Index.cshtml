@@ -4,10 +4,11 @@
 
 }
 <h1>Списък с всички маршрути</h1>
-@using (Html.BeginForm("Index", "Route", FormMethod.Get))
+@using (Html.BeginForm("Index", "Route", FormMethod.Get, new {id = "searchForm"}))
 {
     @Html.TextBox("search")
     <input type="submit" value="Search" />
+    <input type="button" value="Clear" onclick="clearForm()" />
 }
 <table class="table" id="routesTable">
     <thead>
@@ -27,6 +28,8 @@
     }
 </table>
 
+@Html.ActionLink("Create Route", "Create");
+
 <div id="dialog-confirm" title="Изтриване на маршрут?">
     <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
 </div>
@@ -34,6 +37,12 @@
 @section scripts
 {
     <script type="text/javascript">
+
+        function clearForm() {
+            var box = $("[name=search]");
+            box.val("");
+            $("#searchForm").submit();
+        }
 
         $(function () {
             var $routesTable = $("#routesTable"),

@@ -38,7 +38,8 @@ namespace TouristRouteCatalog.Core.Model
 
             if (search != null)
 	        {
-                allRoutes.RemoveAll(item => item.Name != null && !item.Name.Contains(search));
+                allRoutes.RemoveAll(item => (item.Name != null && !item.Name.Contains(search))  &&
+                    ( item.Description != null && !item.Description.Contains(search)));
 	        }
             
 
