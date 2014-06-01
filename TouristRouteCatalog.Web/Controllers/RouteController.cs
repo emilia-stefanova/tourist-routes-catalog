@@ -12,10 +12,10 @@ namespace TouristRouteCatalog.Web.Controllers
     public class RouteController : BaseController
     {
 
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
             var rm = LoadModel<RoutesModel>();
-            var routes = rm.GetAllRoutes();
+            var routes = rm.GetAllRoutes(search);
 
             return View(routes);
         }

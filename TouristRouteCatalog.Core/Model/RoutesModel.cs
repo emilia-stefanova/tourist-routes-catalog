@@ -27,7 +27,7 @@ namespace TouristRouteCatalog.Core.Model
 
         }
 
-        public List<RouteProxy> GetAllRoutes()
+        public List<RouteProxy> GetAllRoutes(string search = null)
         {
             var allRoutes = RouteRepo.GetAllRoutes();
             foreach (var route in allRoutes)
@@ -35,6 +35,12 @@ namespace TouristRouteCatalog.Core.Model
                 route.Campsites = CampsiteRepo.GetAllCampsitesForRoute(route.Id);
                 route.WaterSources = WaterSourceRepo.GetAllWaterSourcesForRoute(route.Id);
             }
+
+            if (search != null)
+	        {
+                allRoutes.RemoveAll(item => item.Name != null && !item.Name.Contains(search));
+	        }
+            
 
             return allRoutes;
         }

@@ -4,6 +4,11 @@
 
 }
 <h1>Списък с всички маршрути</h1>
+@using (Html.BeginForm("Index", "Route", FormMethod.Get))
+{
+    @Html.TextBox("search")
+    <input type="submit" value="Search" />
+}
 <table class="table" id="routesTable">
     <thead>
         <tr>
