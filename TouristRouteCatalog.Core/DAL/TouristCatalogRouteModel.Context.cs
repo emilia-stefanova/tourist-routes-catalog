@@ -28,9 +28,9 @@ namespace TouristRouteCatalog.Core.DAL
         public DbSet<Campsite> Campsites { get; set; }
         public DbSet<RouteDifficultyLevel> RouteDifficultyLevels { get; set; }
         public DbSet<RouteGeoPoint> RouteGeoPoints { get; set; }
-        public DbSet<RouteImage> RouteImages { get; set; }
         public DbSet<Route> Routes { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<WaterSource> WaterSources { get; set; }
+        public DbSet<RouteImage> RouteImages { get; set; }
     }
 }

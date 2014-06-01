@@ -6,7 +6,7 @@ using TouristRouteCatalog.Core.Proxy;
 
 namespace TouristRouteCatalog.Core.Repository
 {
-    public class RouteRepo : BaseRepo<RouteProxy>
+    public class RouteRepo : BaseRepo<Route>
     {
         [InjectionConstructor]
         public RouteRepo(TouristCatalogModelEntity context)
@@ -40,6 +40,10 @@ namespace TouristRouteCatalog.Core.Repository
             return null;
         }
 
+        public Route GetDbRouteById(int id)
+        {
+            return Context.Routes.FirstOrDefault(r => r.Id == id);
+        }
         public bool UpdateRoute(RouteProxy routeProxy)
         {
             var route = Context.Routes.FirstOrDefault(r => r.Id == routeProxy.Id);

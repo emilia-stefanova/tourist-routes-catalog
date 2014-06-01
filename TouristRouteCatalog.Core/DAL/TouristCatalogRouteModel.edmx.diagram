@@ -8,16 +8,16 @@
         <EntityTypeShape EntityType="TouristCatalogRouteModel.Campsite" Width="1.5" PointX="7.875" PointY="17" />
         <EntityTypeShape EntityType="TouristCatalogRouteModel.RouteDifficultyLevel" Width="1.5" PointX="10" PointY="11.375" />
         <EntityTypeShape EntityType="TouristCatalogRouteModel.RouteGeoPoint" Width="1.5" PointX="11.875" PointY="12.75" />
-        <EntityTypeShape EntityType="TouristCatalogRouteModel.RouteImage" Width="1.5" PointX="4.625" PointY="14.875" />
         <EntityTypeShape EntityType="TouristCatalogRouteModel.Route" Width="1.5" PointX="7.75" PointY="12.125" />
         <EntityTypeShape EntityType="TouristCatalogRouteModel.User" Width="1.5" PointX="10.875" PointY="15.125" />
         <EntityTypeShape EntityType="TouristCatalogRouteModel.WaterSource" Width="1.5" PointX="5.375" PointY="12.5" />
         <AssociationConnector Association="TouristCatalogRouteModel.FK_Routes_RouteDifficultyLevels1" />
         <AssociationConnector Association="TouristCatalogRouteModel.FK_RouteGeoPoints_Routes" />
-        <AssociationConnector Association="TouristCatalogRouteModel.FK_RouteImages_Routes" />
         <AssociationConnector Association="TouristCatalogRouteModel.FK_Routes_Users" />
         <AssociationConnector Association="TouristCatalogRouteModel.RoutesCampsites" />
         <AssociationConnector Association="TouristCatalogRouteModel.RoutesWaterSources" />
+        <EntityTypeShape EntityType="TouristCatalogRouteModel.RouteImage" Width="1.5" PointX="5.375" PointY="15.125" />
+        <AssociationConnector Association="TouristCatalogRouteModel.FK_RouteImages_Routes" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

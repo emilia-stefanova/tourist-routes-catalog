@@ -17,9 +17,9 @@ namespace TouristRouteCatalog.Core.DAL
         public Route()
         {
             this.RouteGeoPoints = new HashSet<RouteGeoPoint>();
-            this.RouteImages = new HashSet<RouteImage>();
             this.Campsites = new HashSet<Campsite>();
             this.WaterSources = new HashSet<WaterSource>();
+            this.RouteImages = new HashSet<RouteImage>();
         }
     
         public int Id { get; set; }
@@ -33,9 +33,9 @@ namespace TouristRouteCatalog.Core.DAL
     
         public virtual RouteDifficultyLevel RouteDifficultyLevel { get; set; }
         public virtual ICollection<RouteGeoPoint> RouteGeoPoints { get; set; }
-        public virtual ICollection<RouteImage> RouteImages { get; set; }
         public virtual User User { get; set; }
         public virtual ICollection<Campsite> Campsites { get; set; }
         public virtual ICollection<WaterSource> WaterSources { get; set; }
+        public virtual ICollection<RouteImage> RouteImages { get; set; }
     }
 }

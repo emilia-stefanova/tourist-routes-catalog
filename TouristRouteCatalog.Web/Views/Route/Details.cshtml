@@ -24,41 +24,66 @@
     </div>*@
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.DifficultyLevel)
+        @Html.DisplayNameFor(model => model.DifficultyLevel)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.DifficultyLevel)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Duration)
+        @Html.DisplayNameFor(model => model.Duration)
     </div>
     <div class="display-field">
         @TimeSpan.FromTicks(Model.Duration.Value)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Description)
+        @Html.DisplayNameFor(model => model.Description)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Description)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Seasons)
+        @Html.DisplayNameFor(model => model.Seasons)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Seasons)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.PublicTransport)
+        @Html.DisplayNameFor(model => model.PublicTransport)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.PublicTransport)
     </div>
+    <div class="display-label">
+        Снимки
+    </div>
+    <table class="table" id="routesTable">
+        <thead>
+            <tr>
+                <th>Име</th>
+                <th>Описание</th>
+                <th>Картинка</th>
+                <th>Опции</th>
+            </tr>
+        </thead>
+        @foreach (var r in Model.Images)
+        {
+            <tr>
+                <td>@r.Name</td>
+                <td>@r.Description</td>
+                <td><a href="@r.ImageLocation">
+                    <img src="@r.ImageLocation" width="300px" /></a></td>
+                <td>
+                    <input type="button" class="delete-button" data-route-name="@r.Name" value="Изтрии" onclick="document.location.href = '/RouteImage/Delete?id=@r.Id&routeId=@r.RouteId'" /></td>
+            </tr>
+        }
+    </table>
 </fieldset>
 <p>
-    @Html.ActionLink("Редактиране", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Редактиране", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Добави снимка", "Add", "RouteImage", new { id = Model.Id }, new { }) |
     @Html.ActionLink("Назад", "Index")
 </p>

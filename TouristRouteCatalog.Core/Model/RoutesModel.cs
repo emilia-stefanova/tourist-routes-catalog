@@ -16,6 +16,9 @@ namespace TouristRouteCatalog.Core.Model
         public RouteRepo RouteRepo { get; set; }
 
         [Dependency]
+        public RouteImageRepo RouteImageRepo { get; set; }
+
+        [Dependency]
         public WaterSourceRepo WaterSourceRepo { get; set; }
 
         [Dependency]
@@ -34,6 +37,7 @@ namespace TouristRouteCatalog.Core.Model
             {
                 route.Campsites = CampsiteRepo.GetAllCampsitesForRoute(route.Id);
                 route.WaterSources = WaterSourceRepo.GetAllWaterSourcesForRoute(route.Id);
+                route.Images = RouteImageRepo.GetAllImagesForRoute(route.Id);
             }
 
             if (search != null)
@@ -51,7 +55,7 @@ namespace TouristRouteCatalog.Core.Model
             var route = RouteRepo.GetRouteById(id);
             route.Campsites = CampsiteRepo.GetAllCampsitesForRoute(route.Id);
             route.WaterSources = WaterSourceRepo.GetAllWaterSourcesForRoute(route.Id);
-
+            route.Images = RouteImageRepo.GetAllImagesForRoute(id);
             return route;
         }
 
@@ -69,7 +73,7 @@ namespace TouristRouteCatalog.Core.Model
 
         public bool DeleteRoute(int routeId)
         {
-            return RouteRepo.Delete(RouteRepo.GetRouteById(routeId)) == 1;
+            return RouteRepo.Delete(RouteRepo.GetDbRouteById(routeId)) == 1;
         }
     }
 }

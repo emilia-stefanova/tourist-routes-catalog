@@ -9,7 +9,7 @@ using TouristRouteCatalog.Core.Proxy;
 
 namespace TouristRouteCatalog.Core.Repository
 {
-    public class RouteImageRepo : BaseRepo<RouteImageProxy>
+    public class RouteImageRepo : BaseRepo<RouteImage>
     {
         [InjectionConstructor]
         public RouteImageRepo(TouristCatalogModelEntity context)
@@ -47,6 +47,13 @@ namespace TouristRouteCatalog.Core.Repository
                         Longitude = image.Longitude,
                         RouteId = image.RouteId
                     }).FirstOrDefault();
+        }
+
+        public RouteImage GetDbImageRouteForId(int imageId)
+        {
+            return (from image in this.Context.RouteImages
+                    where image.Id == imageId
+                    select image).FirstOrDefault();
         }
     }
 }
