@@ -67,7 +67,8 @@ namespace TouristRouteCatalog.Core.Repository
                 Duration = route.Duration,
                 Description = route.Description,
                 Seasons = route.Seasons,
-                PublicTransport = route.PublicTransport
+                PublicTransport = route.PublicTransport,
+                CreatorId = route.CreatorId
             };
             Context.Routes.Add(newRoute);
             Context.SaveChanges();
