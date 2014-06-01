@@ -102,11 +102,11 @@ namespace TouristRouteCatalog.Core.Repository
 
         public virtual long Delete(IEnumerable<TEntity> entities)
         {
-            foreach (var entity in entities)
+            while (entities.Count() > 0)
             {
+                var entity = entities.FirstOrDefault();
                 this.DbSet.Remove(entity);
             }
-
             return this.SaveChanges();
         }
 
@@ -117,10 +117,12 @@ namespace TouristRouteCatalog.Core.Repository
 
         public virtual void DeleteWithoutSave(IEnumerable<TEntity> entities)
         {
-            foreach (var entity in entities)
+            while (entities.Count() > 0)
             {
+                var entity = entities.FirstOrDefault();
                 this.DbSet.Remove(entity);
             }
+
         }
 
         public virtual int SaveChanges()

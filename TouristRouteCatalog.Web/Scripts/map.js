@@ -1,18 +1,23 @@
 ﻿$(document).ready(function () {
-    fillData();
     createMap();
+    fillData();
 });
 function fillData() {
-    coordinates.push(new google.maps.LatLng(42.178416099796,23.588504791259766));
-    coordinates.push(new google.maps.LatLng(42.15398687759265, 23.593482971191406));
-    coordinates.push(new google.maps.LatLng(42.15067802855498, 23.592967987060547));
-    coordinates.push(new google.maps.LatLng(42.140623156752284, 23.59485626220703));
-    coordinates.push(new google.maps.LatLng(42.13387658821469, 23.590564727783203));
-    coordinates.push(new google.maps.LatLng(42.13400388861329, 23.583354949951172));
+    var points = $("#pointsContainer").val().split(";");
+    for (i = 0; i < points.length; i++) {
+        if (points[i] != "") {
+            var point = points[i].split(":");
+            var myLatlng = new google.maps.LatLng(parseFloat(point[0]), parseFloat(point[1]));
+            addMarker(myLatlng);
+        }
+    }
+    redrawPath();
+    if (markers.length > 0) {
+        centerMap(markers[0].position);
+    }
 }
 var event;
-var coordinates = [];
-var coordinatesManual = [];
+var markers = [];
 var map;
 var flightPath;
 var flightPathManual;
@@ -21,51 +26,77 @@ function createMap() {
 
     var mapOptions = {
         center: myLatlng,
-        zoom:13
+        zoom: 13
     };
     map = new google.maps.Map(document.getElementById("map"),
         mapOptions);
+
+    google.maps.event.addListener(map, 'click', function (event) {
+        addMarker(event.latLng);
+        redrawPath();
+        serializeCoordinatesToContainer();
+    });
+
+
+}
+
+function serializeCoordinatesToContainer() {
+    var serializedCoordinates = "";
+    var coordinates = getLatLngFromMarkers();
     for (i = 0; i < coordinates.length; i++) {
-        var marker = new google.maps.Marker({
-            position: coordinates[i],
-            map: map,
-            title: "Hello World!"
-        });
+        if (serializedCoordinates != "") {
+            serializedCoordinates += ";"
+        }
+        serializedCoordinates += coordinates[i].lat() + ":" + coordinates[i].lng();
+    }
+    $("#pointsContainer").val(serializedCoordinates);
+}
+
+function redrawPath() {
+    if (flightPathManual != null) {
+        flightPathManual.setMap(null);
     }
 
-    flightPath = new google.maps.Polyline({
-        path: coordinates,
+    flightPathManual = new google.maps.Polyline({
+        path: getLatLngFromMarkers(),
         geodesic: true,
         strokeColor: '#FF0000',
         strokeOpacity: 1.0,
         strokeWeight: 2
     });
 
-    flightPath.setMap(map);
-
-    google.maps.event.addListener(map, 'click', function (ev) {
-        event = ev;
-        console.info(event.latLng);
-        coordinatesManual.push(event.latLng);
-        if (flightPathManual != null) {
-            flightPathManual.setMap(null);
-        }
-        var marker = new google.maps.Marker({
-            position: event.latLng,
-            map: map,
-            title: "Hello World!"
-        });
-        flightPathManual = new google.maps.Polyline({
-            path: coordinatesManual,
-            geodesic: true,
-            strokeColor: '#FF0000',
-            strokeOpacity: 1.0,
-            strokeWeight: 2
-        });
-
-        flightPathManual.setMap(map);
-    });
-
-
+    flightPathManual.setMap(map);
 }
 
+function getLatLngFromMarkers() {
+    var coordinates = [];
+    for (i = 0; i < markers.length; i++) {
+        coordinates.push(markers[i].position);
+    }
+    return coordinates;
+}
+
+function addMarker(myLatlng) {
+    var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map
+    });
+    markers.push(marker);
+
+    google.maps.event.addListener(marker, 'click', function (event) {
+        console.info(marker);
+        for (i = 0; i < markers.length; i++) {
+            if (marker === markers[i]) {
+                markers.splice(i, 1);
+            }
+        }
+        marker.setMap(null);
+
+        redrawPath();
+        serializeCoordinatesToContainer();
+    });
+}
+
+function centerMap(latLng) {
+    map.setCenter(latLng);
+}

@@ -23,8 +23,8 @@ namespace TouristRouteCatalog.Web.Controllers
         public ActionResult Details(int id)
         {
             var rm = LoadModel<RoutesModel>();
-
-            return View(rm.GetRouteById(id));
+            var route = rm.GetRouteById(id);
+            return View(route);
         }
 
         public ActionResult Edit(int id)

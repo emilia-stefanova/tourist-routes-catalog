@@ -4,7 +4,12 @@
     ViewBag.Title = "Create";
 }
 
+<script src="/Scripts/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="/Scripts/map.js"></script>
 <h2>Добавяне на маршрут</h2>
+
+<div id="map" style="width:700px; height: 500px;"></div>
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -71,6 +76,7 @@
             <input type="submit" value="Запази" />
         </p>
     </fieldset>
+    @Html.HiddenFor(model => model.SerializedGeoPoints, new { id = "pointsContainer" })
 }
 
 <div>

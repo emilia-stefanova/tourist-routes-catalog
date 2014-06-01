@@ -61,21 +61,5 @@ namespace TouristRouteCatalog.Core.Repository
 
             return false;
         }
-
-        public void CreateRoute(RouteProxy route)
-        {
-            Route newRoute = new Route()
-            {
-                Name = route.Name,
-                DifficultyLevel = route.DifficultyLevel,
-                Duration = route.Duration,
-                Description = route.Description,
-                Seasons = route.Seasons,
-                PublicTransport = route.PublicTransport,
-                CreatorId = route.CreatorId
-            };
-            Context.Routes.Add(newRoute);
-            Context.SaveChanges();
-        }
     }
 }
