@@ -8,13 +8,13 @@
 {
     <label>Text:</label>
     @Html.TextBox("search")
-    <label>Latitude:</label>    
+   @* <label>Latitude:</label>    
     @Html.TextBox("lat")
     <label>Longitude:</label>    
     @Html.TextBox("lng")
-    <input type="submit" value="Search" />
+    *@<input type="submit" value="Search" />
     <input type="button" value="Clear" onclick="clearForm()" />
-    <input type="button" value="Get current position" onclick="getCurrentPosition()" />
+    @*<input type="button" value="Get current position" onclick="getCurrentPosition()" />*@
 }
 <table class="table" id="routesTable">
     <thead>
