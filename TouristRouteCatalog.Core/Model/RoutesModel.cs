@@ -34,7 +34,7 @@ namespace TouristRouteCatalog.Core.Model
 
         }
 
-        public List<RouteProxy> GetAllRoutes(string search = null)
+        public List<RouteProxy> GetAllRoutes(string search = null, double? lat = null, double? lng = null)
         {
             var allRoutes = RouteRepo.GetAllRoutes();
             foreach (var route in allRoutes)
@@ -46,11 +46,15 @@ namespace TouristRouteCatalog.Core.Model
             }
 
             if (search != null)
-	        {
-                allRoutes.RemoveAll(item => (item.Name != null && !item.Name.Contains(search))  &&
-                    ( item.Description != null && !item.Description.Contains(search)));
-	        }
-            
+            {
+                allRoutes.RemoveAll(item => (item.Name != null && !item.Name.Contains(search)) &&
+                    (item.Description != null && !item.Description.Contains(search)));
+            }
+
+            if (lat != null && lng != null)
+            {
+                allRoutes.RemoveAll(item => item.GeoPoints.FirstOrDefault(point => Math.Abs(point.Latitude - lat.Value) < 1 && Math.Abs(point.Longitude - lng.Value) < 1) == null);
+            }
 
             return allRoutes;
         }
