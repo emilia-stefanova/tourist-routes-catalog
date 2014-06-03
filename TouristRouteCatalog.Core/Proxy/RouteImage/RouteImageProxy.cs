@@ -11,16 +11,17 @@ namespace TouristRouteCatalog.Core.Proxy
     public class RouteImageProxy
     {
         public int Id { get; set; }
-        [Required]
         [DisplayName("Път към снимката")]
+        [Required]
         public string ImageLocation { get; set; }
         public int RouteId { get; set; }
         public double? Latitude { get; set; }
         public double? Longitude { get; set; }
-        [Required]
         [DisplayName("Име")]
+        [Required]
         public string Name { get; set; }
         [DisplayName("Описание")]
+        [Required]
         public string Description { get; set; }
     }
 }

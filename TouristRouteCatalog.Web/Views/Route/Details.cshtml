@@ -39,7 +39,7 @@
         @Html.DisplayNameFor(model => model.Duration)
     </div>
     <div class="display-field">
-        @TimeSpan.FromTicks(Model.Duration.Value)
+        @TimeSpan.FromTicks(Model.Duration != null ? Model.Duration.Value : 0)
     </div>
 
     <div class="display-label">

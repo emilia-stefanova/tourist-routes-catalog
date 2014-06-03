@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace TouristRouteCatalog.Core.Proxy
 {
@@ -28,21 +29,27 @@ namespace TouristRouteCatalog.Core.Proxy
         public int CreatorId { get; set; }
 
         [DisplayName("Име")]
+        [Required]
         public string Name { get; set; }
 
         [DisplayName("Трудност")]
+        [Required]
         public int DifficultyLevel { get; set; }
 
         [DisplayName("Продължителност")]
+        [Required]
         public Nullable<long> Duration { get; set; }
 
         [DisplayName("Описание")]
+        [Required]
         public string Description { get; set; }
 
         [DisplayName("Сезони")]
+        [Required]
         public string Seasons { get; set; }
 
         [DisplayName("Градски Транспорт")]
+        [Required]
         public string PublicTransport { get; set; }
 
         public ICollection<CampsiteProxy> Campsites { get; set; }

@@ -5,8 +5,12 @@
 
 <h2>Добави снимка към маршрут</h2>
 
+<div id="form">
 @using (Html.BeginForm("Add", "RouteImage", "Post"))
 {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
     @Html.HiddenFor(item => item.RouteId)
     <div class="editor-label">
         @Html.LabelFor(model => model.Name)
@@ -29,5 +33,27 @@
         @Html.TextBoxFor(model => model.ImageLocation)
         @Html.ValidationMessageFor(model => model.ImageLocation)
     </div>
-    <input type="submit" value="Добави" />
+                <input type="button" value="Запази" onclick="SubmitForm();" />
 }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+<script>
+    function SubmitForm() {
+        var url = $("#ImageLocation").val().toLowerCase();
+        if (url.match("^http://") == null) {
+            alert("image url is not link!");
+            return false;
+        }
+        if (url.match(".jpg$") == null && url.match(".png$") == null && url.match(".gif$") == null) {
+            alert("Only images are allowed (jpg, png, gif)");
+            return false;
+        }
+        $("#form form").submit();
+    }
+</script>

@@ -37,6 +37,7 @@ namespace TouristRouteCatalog.Web.Controllers
         [HttpPost]
         public ActionResult Edit(RouteProxy route)
         {
+            route.CreatorId = 1;
             if (ModelState.IsValid)
             {
                 var rm = LoadModel<RoutesModel>();
@@ -57,6 +58,7 @@ namespace TouristRouteCatalog.Web.Controllers
         [HttpPost]
         public ActionResult Create(RouteProxy route)
         {
+            route.CreatorId = 1;
             if (ModelState.IsValid)
             {
                 var rm = LoadModel<RoutesModel>();
@@ -66,13 +68,12 @@ namespace TouristRouteCatalog.Web.Controllers
             return View(route);
         }
 
-        [HttpPost]
-        public ActionResult Delete(int routeId)
+        public ActionResult Delete(int id)
         {
             if (ModelState.IsValid)
             {
                 var rm = LoadModel<RoutesModel>();
-                rm.DeleteRoute(routeId);
+                rm.DeleteRoute(id);
             }
             return RedirectToAction("Index");
         }

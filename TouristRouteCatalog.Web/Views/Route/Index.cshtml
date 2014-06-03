@@ -92,6 +92,7 @@
                 autoOpen: false,
                 buttons: {
                     "Изтриване": function () {
+                        document.location.href = '/Route/Delete?id=' + $(this).data("route-id");
                         $(this).dialog("close");
                     },
                     "Отказ": function () {

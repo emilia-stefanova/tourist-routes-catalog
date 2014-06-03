@@ -84,7 +84,6 @@ function addMarker(myLatlng) {
     markers.push(marker);
 
     google.maps.event.addListener(marker, 'click', function (event) {
-        console.info(marker);
         for (i = 0; i < markers.length; i++) {
             if (marker === markers[i]) {
                 markers.splice(i, 1);
