@@ -247,6 +247,7 @@
     <Content Include="Scripts\DataTables-1.9.4\media\unit_testing\templates\js_data.php" />
     <Content Include="Scripts\DataTables-1.9.4\media\unit_testing\templates\js_data_mixed_types.php" />
     <Content Include="Scripts\DataTables-1.9.4\media\unit_testing\templates\two_tables.php" />
+    <None Include="Properties\PublishProfiles\File system.pubxml" />
     <None Include="Properties\PublishProfiles\Somee.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

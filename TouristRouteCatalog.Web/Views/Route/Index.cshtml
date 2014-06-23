@@ -3,14 +3,93 @@
     ViewBag.Title = "Index";
 
 }
-<h1>Списък с всички маршрути</h1>
-@using (Html.BeginForm("Index", "Route", FormMethod.Get, new {id = "searchForm"}))
+
+<div class="row" style="max-height:200px; overflow:hidden; background-position: 50% 50%; padding:0;">
+    <div class="col-md-4" style="max-height:200px; overflow:hidden; background-position: 50% 50%; padding:2px;">
+        <a href="/Route/Details/@Model[0].Id">
+            <img class="thumbnail-image" src="@Model[0].DefaultImage.ImageLocation" />
+            <div class="image-title">
+                @Model[0].Name
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4" style="max-height:200px; overflow:hidden; background-position: 50% 50%; padding:2px;">
+        <a href="/Route/Details/@Model[1].Id">
+            <img class="thumbnail-image" src="@Model[1].DefaultImage.ImageLocation" />
+            <div class="image-title">
+                @Model[1].Name
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4" style="max-height:200px; overflow:hidden; background-position: 50% 50%; padding:2px;">
+        <a href="/Route/Details/@Model[2].Id">
+            <img class="thumbnail-image" src="@Model[2].DefaultImage.ImageLocation" />
+            <div class="image-title">
+                @Model[2].Name
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="row" style="max-height:200px; overflow:hidden; background-position: 50% 50%; padding:0;">
+    <div class="col-md-6" style="max-height:200px; overflow:hidden; background-position: 50% 50%; padding:2px;">
+        <a href="/Route/Details/@Model[3].Id">
+            <img class="thumbnail-image" src="@Model[3].DefaultImage.ImageLocation" />
+            <div class="image-title">
+                @Model[3].Name
+            </div>
+        </a>
+    </div>
+    <div class="col-md-6" style="max-height:200px; overflow:hidden; background-position: 50% 50%; padding:2px;">
+        <a href="/Route/Details/@Model[4].Id">
+            <img class="thumbnail-image" src="@Model[4].DefaultImage.ImageLocation" />
+            <div class="image-title">
+                @Model[4].Name
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="row" style="max-height:200px; overflow:hidden; background-position: 50% 50%; padding:0;">
+    <div class="col-md-4" style="max-height:200px; overflow:hidden; background-position: 50% 50%; padding:2px;">
+        <a href="/Route/Details/@Model[5].Id">
+            <img class="thumbnail-image" src="@Model[5].DefaultImage.ImageLocation" />
+            <div class="image-title">
+                @Model[5].Name
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4" style="max-height:200px; overflow:hidden; background-position: 50% 50%; padding:2px;">
+        <a href="/Route/Details/@Model[6].Id">
+            <img class="thumbnail-image" src="@Model[6].DefaultImage.ImageLocation" />
+            <div class="image-title">
+                @Model[6].Name
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4" style="max-height:200px; overflow:hidden; background-position: 50% 50%; padding:2px;">
+        <a href="/Route/Details/@Model[7].Id">
+            <img class="thumbnail-image" src="@Model[7].DefaultImage.ImageLocation" />
+            <div class="image-title">
+                @Model[7].Name
+            </div>
+        </a>
+    </div>
+</div>
+
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+
+<h3>Всички Маршрути</h3>
+@using (Html.BeginForm("Index", "Route", FormMethod.Get, new { id = "searchForm" }))
 {
     <label>Text:</label>
     @Html.TextBox("search")
-    <label>Latitude:</label>    
+    <label>Latitude:</label>
     @Html.TextBox("lat")
-    <label>Longitude:</label>    
+    <label>Longitude:</label>
     @Html.TextBox("lng")
     <input type="submit" value="Search" />
     <input type="button" value="Clear" onclick="clearForm()" />

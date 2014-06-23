@@ -128,7 +128,15 @@ namespace TouristRouteCatalog.Core.Model
 
         public bool DeleteRoute(int routeId)
         {
-            return RouteRepo.Delete(RouteRepo.GetDbRouteById(routeId)) == 1;
+            var route = RouteRepo.GetDbRouteById(routeId);
+
+            // we'll be better off without saving the routeId for geo points,
+            // but as a temp fix this will do
+            while (route.RouteGeoPoints.Count > 0)
+            {
+                RouteGeoPointRepo.Delete(route.RouteGeoPoints.First());
+            }
+            return RouteRepo.Delete(route) == 1;
         }
     }
 }

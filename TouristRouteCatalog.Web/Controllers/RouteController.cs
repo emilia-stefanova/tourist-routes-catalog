@@ -12,6 +12,54 @@ namespace TouristRouteCatalog.Web.Controllers
     public class RouteController : BaseController
     {
 
+        public RouteController()
+        {
+            //var ctx = new TouristRouteCatalog.Core.DAL.TouristCatalogModelEntity();
+            //ctx.Users.Add(new Core.DAL.User()
+            //    {
+            //        Description = "This is the default user.",
+            //        Name = "Default User"
+            //    });
+
+            //ctx.SaveChanges();
+            //ctx.RouteDifficultyLevels.Add(
+            //    new Core.DAL.RouteDifficultyLevel()
+            //    {
+            //        Difficulty = 0,
+            //        Name = "Много лесно"
+            //    });
+
+            //ctx.RouteDifficultyLevels.Add(
+            //    new Core.DAL.RouteDifficultyLevel()
+            //    {
+            //        Difficulty = 1,
+            //        Name = "Лесно"
+            //    });
+
+            //ctx.RouteDifficultyLevels.Add(
+            //    new Core.DAL.RouteDifficultyLevel()
+            //    {
+            //        Difficulty = 2,
+            //        Name = "Средно"
+            //    });
+
+            //ctx.RouteDifficultyLevels.Add(
+            //    new Core.DAL.RouteDifficultyLevel()
+            //    {
+            //        Difficulty = 3,
+            //        Name = "Трудно"
+            //    });
+
+            //ctx.RouteDifficultyLevels.Add(
+            //    new Core.DAL.RouteDifficultyLevel()
+            //    {
+            //        Difficulty = 4,
+            //        Name = "Много Трудно"
+            //    });
+
+            //ctx.SaveChanges();
+        }
+
         public ActionResult Index(string search, double? lat, double? lng)
         {
             var rm = LoadModel<RoutesModel>();
