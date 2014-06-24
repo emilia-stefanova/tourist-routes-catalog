@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[RouteImages] (
     [Id]            INT            IDENTITY (1, 1) NOT NULL,
-    [ImageLocation] NVARCHAR (50)  NOT NULL,
+    [ImageLocation] NVARCHAR (MAX)  NOT NULL,
     [RouteId]       INT            NOT NULL,
     [Longitude]     FLOAT (53)     NULL,
     [Latitude]      FLOAT (53)     NULL,
