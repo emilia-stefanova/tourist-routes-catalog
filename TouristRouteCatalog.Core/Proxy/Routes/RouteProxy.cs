@@ -47,27 +47,27 @@ namespace TouristRouteCatalog.Core.Proxy
         public int CreatorId { get; set; }
 
         [DisplayName("Име")]
-        [Required]
+        [Required(ErrorMessage="Името е задължително")]
         public string Name { get; set; }
 
         [DisplayName("Трудност")]
-        [Required]
+        [Required(ErrorMessage = "Трудността е задължително")]
         public int DifficultyLevel { get; set; }
 
         [DisplayName("Продължителност")]
-        [Required]
+        [Required(ErrorMessage = "Продължителността е задължително")]
         public Nullable<long> Duration { get; set; }
 
         [DisplayName("Описание")]
-        [Required]
+        [Required(ErrorMessage = "Описаниете е задължително")]
         public string Description { get; set; }
 
         [DisplayName("Сезони")]
-        [Required]
+        [Required(ErrorMessage = "Полето Сезони е задължително")]
         public string Seasons { get; set; }
 
         [DisplayName("Градски Транспорт")]
-        [Required]
+        [Required(ErrorMessage = "Полето градски транспорт е задължително")]
         public string PublicTransport { get; set; }
 
         public ICollection<CampsiteProxy> Campsites { get; set; }

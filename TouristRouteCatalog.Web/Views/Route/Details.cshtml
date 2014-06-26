@@ -6,11 +6,10 @@
 
 <script src="/Scripts/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-<script src="/Scripts/map.js"></script>
+<script src="/Scripts/map2.js"></script>
 <h2>@Html.DisplayFor(model => model.Name)</h2>
 
 @Html.HiddenFor(model => model.SerializedGeoPoints, new { id = "pointsContainer" })
-<input id="pac-input" class="controls" type="text" placeholder="Search Box">
 <div id="map" style="height: 500px;"></div>
 <fieldset>
     <legend></legend>
@@ -83,7 +82,7 @@
                 <td><a href="@r.ImageLocation">
                     <img src="@r.ImageLocation" width="300px" /></a></td>
                 <td>
-                    <input type="button" class="delete-button" data-route-name="@r.Name" value="Изтрии" onclick="document.location.href = '/RouteImage/Delete?id=@r.Id&routeId=@r.RouteId'" /></td>
+                    <input type="button" class="delete-button" data-route-name="@r.Name" value="Изтрий" onclick="document.location.href = '/RouteImage/Delete?id=@r.Id&routeId=@r.RouteId'" /></td>
             </tr>
         }
     </table>
@@ -93,3 +92,8 @@
     @Html.ActionLink("Добави снимка", "Add", "RouteImage", new { id = Model.Id }, new { }) |
     @Html.ActionLink("Назад", "Index")
 </p>
+<br />
+<br />
+<br />
+<br />
+<br />

@@ -101,16 +101,17 @@
 <h3>Всички Маршрути</h3>
 @using (Html.BeginForm("Index", "Route", FormMethod.Get, new { id = "searchForm" }))
 {
-    <label>Text:</label>
+    <label>Текст:</label>
     @Html.TextBox("search")
-    <label>Latitude:</label>
+    <label>Г. ширина:</label>
     @Html.TextBox("lat")
-    <label>Longitude:</label>
+    <label>Г. дължина:</label>
     @Html.TextBox("lng")
-    <input type="submit" value="Search" />
-    <input type="button" value="Clear" onclick="clearForm()" />
-    <input type="button" value="Get current position" onclick="getCurrentPosition()" />
+    <input type="submit" value="Търси" />
+    <input type="button" value="Изчисти" onclick="clearForm()" />
+    <input type="button" value="Вземи текуща позиция" onclick="getCurrentPosition()" />
 }
+<input type="button" value="Създай маршрут" onclick="window.location.href = '/Route/Create';" />
 <table class="table" id="routesTable">
     <thead>
         <tr>
@@ -124,12 +125,12 @@
         <tr>
             <td>@Html.ActionLink(r.Name, "Details", new { controller = "Route", action = "Details", id = r.Id })</td>
             <td>@r.Description</td>
-            <td><input type="button" class="delete-button" data-route-id="@r.Id" data-route-name="@r.Name" value="Изтрии" /></td>
+            <td><input type="button" class="delete-button" data-route-id="@r.Id" data-route-name="@r.Name" value="Изтрий" /></td>
         </tr>
     }
 </table>
 
-@Html.ActionLink("Create Route", "Create");
+@Html.ActionLink("Create Route", "Create")
 
 <div id="dialog-confirm" title="Изтриване на маршрут?">
     <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
